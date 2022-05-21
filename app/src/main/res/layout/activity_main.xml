@@ -25,14 +25,16 @@
         android:id="@+id/txt_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="left"
-        android:text="Usuario" />
+        android:text="Usuario"
+        style="@style/login_txt"/>
 
     <EditText
+        android:id="@+id/edit_txt_user"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:ems="10"
         android:inputType="text"
+        android:paddingLeft="15dp"
         android:background="@drawable/custom_input"/>
 
     <TextView
@@ -40,24 +42,106 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Contraseña"
-        android:layout_gravity="left"/>
+        style="@style/login_txt"/>
 
     <EditText
+        android:id="@+id/edit_txt_password"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:ems="10"
-        android:inputType="text"
+        android:inputType="textPassword"
+        android:paddingLeft="15dp"
+        android:paddingBottom="0dp"
         android:background="@drawable/custom_input"/>
+
+    <Button
+        style="?android:attr/borderlessButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="36dp"
+        android:layout_gravity="left"
+        android:text="¿Olvidaste contraseña?"
+        android:paddingTop="0dp"
+        android:paddingLeft="0dp"
+        android:textAllCaps="false" />
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login"/>
+        android:text="Login"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:backgroundTint="@android:color/darker_gray"
+        />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ó podés ingresar con"/>
+        android:text="Ó podés ingresar con"
+        android:layout_marginVertical="20dp"
+        />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        >
 
+        <ImageButton
+            android:id="@+id/imageBtnApple"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:src="@drawable/ic_apple"/>
+
+        <ImageButton
+            android:id="@+id/imageBtnFb"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:src="@drawable/ic_facebook"/>
+
+        <ImageButton
+            android:id="@+id/imageBtnGoogle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@null"
+            android:src="@drawable/ic_google"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¿No tienes cuenta?"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="?android:attr/borderlessButtonStyle"
+            android:text="Regístrate"
+            android:textAllCaps="false"
+            android:paddingLeft="0dp"
+            android:textColor="@color/black"/>
+
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="?android:attr/borderlessButtonStyle"
+        android:text="Continuar como invitado"
+        android:textAllCaps="false"
+        android:textColor="@color/black"/>
 </LinearLayout>
