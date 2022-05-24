@@ -23,8 +23,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="36dp"
-        android:text="Crear una cuenta"
-        android:textSize="20sp"
+        android:text="@string/crear_una_cuenta"
+        android:textSize="@dimen/title_text"
         android:textStyle="bold" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -32,15 +32,13 @@
         android:id="@+id/txtField_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Nombre"
-        app:boxStrokeColor="@android:color/darker_gray"
-        app:hintTextColor="@color/gray"
-        android:layout_marginBottom="10dp"
+        android:hint="@string/nombre_hint"
+        android:layout_marginBottom="@dimen/space_normal"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_name"
-            android:textSize="16sp"
+            android:textSize="@dimen/content_text"
             android:inputType="text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,13 +50,12 @@
         android:id="@+id/txtField_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Correo electrónico"
-        android:layout_marginBottom="10dp"
+        android:hint="@string/correo_electronico"
+        android:layout_marginBottom="@dimen/space_normal"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_email"
-            android:textSize="16sp"
             android:inputType="textEmailAddress"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -70,7 +67,7 @@
         android:id="@+id/txtField_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Contraseña"
+        android:hint="@string/password_hint"
         app:helperText="La contraseña debe contener 8 caracteres"
         app:endIconMode="password_toggle"
         android:layout_marginBottom="10dp"
@@ -78,18 +75,18 @@
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/input_password"
-            android:textSize="16sp"
             android:inputType="textPassword"
             android:maxLength="8"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+
             />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Aceptar"
+        android:text="@string/aceptar_btn"
         style="@style/custom_button"
         />
 

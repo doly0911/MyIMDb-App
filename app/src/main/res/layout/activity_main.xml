@@ -5,9 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activities.MainActivity"
+    tools:context=".MainActivity"
     android:orientation="vertical"
-    android:background="@color/background_yellow"
+    android:background="@color/yellow_background"
     android:gravity="center|fill_vertical"
     android:padding="30dp">
 
@@ -25,7 +25,7 @@
         android:id="@+id/txt_user"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Usuario"
+        android:text="@string/usuario"
         style="@style/login_txt"/>
 
     <EditText
@@ -41,7 +41,7 @@
         android:id="@+id/txt_password"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Contraseña"
+        android:text="@string/password"
         style="@style/login_txt"/>
 
     <EditText
@@ -59,23 +59,26 @@
         android:layout_width="wrap_content"
         android:layout_height="36dp"
         android:layout_gravity="left"
-        android:text="¿Olvidaste contraseña?"
+        android:text="@string/olvidaste_password"
         android:paddingTop="0dp"
         android:paddingLeft="0dp"
+        android:textColor="@color/gray"
         android:textAllCaps="false" />
 
     <Button
         android:id="@+id/btn_login"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="@string/btn_name_login"
         style="@style/custom_button"
         />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Ó podés ingresar con"
+        android:text="@string/txt_otra_autenticacion"
+        android:textSize="16sp"
+        android:textStyle="italic"
         android:layout_marginVertical="20dp"
         />
 
@@ -118,21 +121,26 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:gravity="center"
-        android:layout_marginTop="10dp">
+        android:layout_marginTop="10dp"
+        >
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="¿No tienes cuenta?"/>
+            android:text="@string/txt_no_cuenta"
+            android:textSize="16sp"
+            />
 
         <Button
             android:id="@+id/btn_register"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="?android:attr/borderlessButtonStyle"
-            android:text="Regístrate"
+            android:text="@string/registrate"
+            android:textSize="16sp"
             android:textAllCaps="false"
-            android:paddingLeft="0dp"
+
+            android:paddingLeft="4dp"
             android:textColor="@color/black"/>
 
     </LinearLayout>
@@ -142,7 +150,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="?android:attr/borderlessButtonStyle"
-        android:text="Continuar como invitado"
+        android:text="@string/invitado"
+        android:textSize="16sp"
         android:textAllCaps="false"
         android:textColor="@color/black"/>
 </LinearLayout>

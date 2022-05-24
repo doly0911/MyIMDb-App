@@ -2,7 +2,7 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android"
     android:opacity="translucent">
 
-    <item android:drawable="@color/background_yellow"/>
+    <item android:drawable="@color/yellow_background"/>
     <item>
         <bitmap android:src="@drawable/logo_rectangle"
             android:gravity="center"/>
