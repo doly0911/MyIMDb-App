@@ -1,4 +1,20 @@
 <resources>
     <string name="app_name">IMDb</string>
-    <!-- TODO: Remove or change this placeholder text -->
+
+    <!-- Login labels -->
+    <string name="usuario">Usuario</string>
+    <string name="password">Contraseña</string>
+    <string name="olvidaste_password">¿Olvidaste contraseña?</string>
+    <string name="btn_name_login">Login</string>
+    <string name="txt_otra_autenticacion">Ó podés ingresar con</string>
+    <string name="txt_no_cuenta">¿No tienes cuenta?</string>
+    <string name="registrate">Regístrate</string>
+    <string name="invitado">Continuar como invitado</string>
+
+    <!-- Crear Cuenta labels -->
+    <string name="crear_una_cuenta">Crear una cuenta</string>
+    <string name="nombre_hint">Nombre</string>
+    <string name="correo_electronico">Correo electrónico</string>
+    <string name="password_hint">Contraseña</string>
+    <string name="aceptar_btn">Aceptar</string>
 </resources>
