@@ -10,4 +10,19 @@
         android:name="com.bootcamp.imdb.fragments.MovieListFragment"
         android:label="fragment_movie_list"
         tools:layout="@layout/fragment_movie_list" />
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.bootcamp.imdb.fragments.HomeFragment"
+        android:label="fragment_home"
+        tools:layout="@layout/fragment_home" />
+    <fragment
+        android:id="@+id/playFragment"
+        android:name="com.bootcamp.imdb.fragments.PlayFragment"
+        android:label="fragment_play"
+        tools:layout="@layout/fragment_play" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.bootcamp.imdb.fragments.ProfileFragment"
+        android:label="fragment_profile"
+        tools:layout="@layout/fragment_profile" />
 </navigation>
