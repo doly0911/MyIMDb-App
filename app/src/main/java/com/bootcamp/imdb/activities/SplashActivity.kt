@@ -3,10 +3,7 @@ package com.bootcamp.imdb.activities
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
-import android.os.Looper
 import com.bootcamp.imdb.MainActivity
-import com.bootcamp.imdb.R
 
 class SplashActivity : AppCompatActivity() {
  //   private val time: Long = 1000
