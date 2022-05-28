@@ -9,11 +9,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bootcamp.imdb.R
 import com.bootcamp.imdb.adapters.MovieAdapter
+import com.bootcamp.imdb.databinding.FragmentMovieListBinding
 
 class MovieListFragment : Fragment() {
-    private var layoutManager: RecyclerView.LayoutManager? = null
-    private var adapter: RecyclerView.Adapter<MovieAdapter.ViewHolder>? = null
 
+    private lateinit var binding: FragmentMovieListBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,12 +30,11 @@ class MovieListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        binding = FragmentMovieListBinding.bind(view)
 
-        val recyclerView = view.findViewById<RecyclerView>(R.id.recycler_view)
-        recyclerView.apply {
+        binding.recyclerView.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = MovieAdapter()
         }
-
     }
 }

@@ -5,24 +5,23 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import com.bootcamp.imdb.activities.HomeActivity
+import com.bootcamp.imdb.databinding.ActivityMainBinding
 import com.bootcamp.imdb.register.RegisterActivity
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var btnLogin: Button
-    private lateinit var btnRegister: Button
+    private lateinit var binding: ActivityMainBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        val view = binding.root
+        setContentView(view)
 
-        btnLogin = findViewById(R.id.btn_login)
-        btnRegister = findViewById(R.id.btn_register)
-
-        btnLogin.setOnClickListener {
+        binding.btnLogin.setOnClickListener {
             startActivity(Intent(this, HomeActivity::class.java))
         }
 
-        btnRegister.setOnClickListener {
+        binding.btnRegister.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
         }
     }
