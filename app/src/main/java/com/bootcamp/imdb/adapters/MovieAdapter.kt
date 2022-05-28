@@ -9,12 +9,12 @@ import com.bootcamp.imdb.R
 
 class MovieAdapter: RecyclerView.Adapter<MovieAdapter.ViewHolder>(){
 
-    private var titles = arrayOf("Queen of the South", "Queen Sugar", "Queen", "Queenpins", "The Queens Gambit")
-    private var years = arrayOf("2016", "2016", "2013", "2021", "2020")
+    private var titles = arrayOf("Queen of the South", "Queen Sugar", "Queen", "Queenpins", "The Queens Gambit", "Marvel")
+    private var years = arrayOf("2016", "2016", "2013", "2021", "2020", "2021")
     private var people = arrayOf("Alice Braga, Hemky Madera", "Rutina Wesley, Dawn-Lyen Gardner",
-            "Kangana Ranaut, Rajkummar Rao","Kristen Bell, Kirby Howell-Baptiste", "Anya Taylor-Joy")
+            "Kangana Ranaut, Rajkummar Rao","Kristen Bell, Kirby Howell-Baptiste", "Anya Taylor-Joy", "Thor, Wanda Vision")
     private var images = intArrayOf(R.drawable.img_queen_of_south, R.drawable.img_queen_sugar, R.drawable.img_queen,
-            R.drawable.img_queenpins, R.drawable.img_queen_gambit)
+            R.drawable.img_queenpins, R.drawable.img_queen_gambit, R.drawable.img_marvel)
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieAdapter.ViewHolder {
@@ -28,6 +28,9 @@ class MovieAdapter: RecyclerView.Adapter<MovieAdapter.ViewHolder>(){
         holder.itemYear.text = years[position]
         holder.itemPeople.text = people[position]
         holder.itemImage.setImageResource(images[position])
+        holder.itemView.setOnClickListener {
+
+        }
     }
 
     override fun getItemCount(): Int {
