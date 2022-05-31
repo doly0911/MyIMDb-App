@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="200dp"
+    android:layout_height="200dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="8dp"
+    android:orientation="vertical"
+    app:cardBackgroundColor="@color/white"
+    app:cardPreventCornerOverlap="true"
+    android:clickable="true"
+    android:focusable="true"
+    android:layout_marginEnd="15dp"
+    app:cardUseCompatPadding="true">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        >
+
+        <TextView
+            android:id="@+id/description_text_card"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:background="@color/light_gray"
+            android:textStyle="bold"
+            android:padding="20dp"
+            android:text="Calificar y obtener recomendaciones" />
+
+        <TextView
+            android:id="@+id/title_card"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Calificaciones"
+            android:textStyle="bold"
+            android:layout_marginTop="10dp"/>
+
+        <TextView
+            android:id="@+id/numberTotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:textColor="@color/gray_txt"
+            android:text="0"/>
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
