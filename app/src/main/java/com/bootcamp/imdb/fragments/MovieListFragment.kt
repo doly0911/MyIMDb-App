@@ -5,13 +5,14 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bootcamp.imdb.R
 import com.bootcamp.imdb.adapters.MovieAdapter
 import com.bootcamp.imdb.databinding.FragmentMovieListBinding
 
-class MovieListFragment : Fragment() {
+class MovieListFragment : Fragment(), MovieAdapter.MovieAdapterOnClickListener {
 
     private lateinit var binding: FragmentMovieListBinding
 
@@ -33,13 +34,16 @@ class MovieListFragment : Fragment() {
         binding = FragmentMovieListBinding.bind(view)
 
         //RecyclerView
+        val viewAdapter = MovieAdapter(this)
         binding.recyclerViewMovieList.apply {
             layoutManager = LinearLayoutManager(context)
-            adapter = MovieAdapter()
+            adapter =viewAdapter
         }
 
 
     }
 
-
+    override fun movieCardOnclick(view: View) {
+        view.findNavController().navigate(R.id.action_movieListFragment_to_movieDetailsFragment)
+    }
 }
