@@ -36,5 +36,9 @@ class MovieListFragment : Fragment() {
             layoutManager = LinearLayoutManager(context)
             adapter = MovieAdapter()
         }
+
+
     }
+
+
 }
