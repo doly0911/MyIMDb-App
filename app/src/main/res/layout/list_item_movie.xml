@@ -8,11 +8,13 @@
     android:layout_margin="0dp">
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cardView_movie_list"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
         android:orientation="vertical"
         app:cardElevation="4dp"
+        android:focusable="true"
         android:clickable="true">
 
         <androidx.constraintlayout.widget.ConstraintLayout
