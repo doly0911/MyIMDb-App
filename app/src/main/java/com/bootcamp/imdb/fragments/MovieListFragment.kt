@@ -33,7 +33,7 @@ class MovieListFragment : Fragment() {
         binding = FragmentMovieListBinding.bind(view)
 
         //RecyclerView
-        binding.recyclerView.apply {
+        binding.recyclerViewMovieList.apply {
             layoutManager = LinearLayoutManager(context)
             adapter = MovieAdapter()
         }
