@@ -1,4 +1,4 @@
-package com.bootcamp.imdb.fragments
+package com.bootcamp.imdb.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,9 +7,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.bootcamp.imdb.R
-import com.bootcamp.imdb.adapters.MovieAdapter
+import com.bootcamp.imdb.ui.adapters.MovieAdapter
 import com.bootcamp.imdb.databinding.FragmentMovieListBinding
 
 class MovieListFragment : Fragment(), MovieAdapter.MovieAdapterOnClickListener {

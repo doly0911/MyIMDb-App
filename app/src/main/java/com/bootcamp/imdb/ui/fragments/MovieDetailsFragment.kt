@@ -1,4 +1,4 @@
-package com.bootcamp.imdb.fragments
+package com.bootcamp.imdb.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

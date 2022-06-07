@@ -1,4 +1,4 @@
-package com.bootcamp.imdb.adapters
+package com.bootcamp.imdb.ui.adapters
 
 import android.view.LayoutInflater
 import android.view.View

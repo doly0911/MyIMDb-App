@@ -1,14 +1,13 @@
-package com.bootcamp.imdb.fragments
+package com.bootcamp.imdb.ui.fragments
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bootcamp.imdb.R
-import com.bootcamp.imdb.adapters.HomeAdapter
+import com.bootcamp.imdb.ui.adapters.HomeAdapter
 import com.bootcamp.imdb.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
