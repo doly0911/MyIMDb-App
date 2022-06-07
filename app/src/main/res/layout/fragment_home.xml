@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.HomeFragment">
+    tools:context=".ui.fragments.HomeFragment">
 
     <FrameLayout
         android:id="@+id/frameLayout"
@@ -70,37 +70,53 @@
         app:layout_constraintStart_toStartOf="@+id/title_movie_home"
         app:layout_constraintTop_toBottomOf="@+id/title_movie_home" />
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@+id/guideline">
+        android:layout_height="0dp"
+        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/trailer_txt_home">
 
-        <View
-            android:id="@+id/linea_yellow_mejores_selecciones"
-            android:layout_width="4dp"
-            android:layout_height="25dp"
-            android:background="@color/yellow_background"/>
 
-        <TextView
-            android:id="@+id/title_mejores_selecciones"
+        <RelativeLayout
+            android:id="@+id/relativeLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentTop="true"
-            android:layout_margin="8dp"
-            android:layout_toRightOf="@+id/linea_yellow_mejores_selecciones"
-            android:text="Las mejores selecciones"
-            android:textSize="@dimen/title_text"
-            android:textStyle="bold" />
+            android:layout_marginHorizontal="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/guideline"
+            tools:layout_editor_absoluteX="16dp">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recyclerView_mejores_selecciones"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/title_mejores_selecciones"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/row_item_list_home"/>
+            <View
+                android:id="@+id/linea_yellow_mejores_selecciones"
+                android:layout_width="8dp"
+                android:layout_height="25dp"
+                android:background="@color/yellow_background" />
 
-    </RelativeLayout>
+            <TextView
+                android:id="@+id/title_mejores_selecciones"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:layout_marginStart="10dp"
+                android:layout_marginBottom="16dp"
+                android:layout_toRightOf="@+id/linea_yellow_mejores_selecciones"
+                android:text="Las mejores selecciones"
+                android:textSize="@dimen/title_text"
+                android:textStyle="bold" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView_mejores_selecciones"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title_mejores_selecciones"
+                android:orientation="horizontal"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                tools:listitem="@layout/row_item_list_home" />
+
+        </RelativeLayout>
+
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

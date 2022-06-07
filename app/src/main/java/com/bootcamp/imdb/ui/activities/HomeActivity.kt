@@ -1,4 +1,4 @@
-package com.bootcamp.imdb.activities
+package com.bootcamp.imdb.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -6,7 +6,6 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.bootcamp.imdb.R
 import com.bootcamp.imdb.databinding.ActivityHomeBinding
-import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class HomeActivity : AppCompatActivity() {
 

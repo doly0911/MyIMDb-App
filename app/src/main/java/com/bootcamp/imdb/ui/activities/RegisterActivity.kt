@@ -1,8 +1,7 @@
-package com.bootcamp.imdb.register
+package com.bootcamp.imdb.ui.activities
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.bootcamp.imdb.R
 import com.bootcamp.imdb.databinding.ActivityRegisterBinding
 
 class RegisterActivity : AppCompatActivity() {

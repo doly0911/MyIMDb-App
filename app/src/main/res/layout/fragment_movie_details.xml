@@ -1,48 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".fragments.MovieDetailsFragment">
+    android:layout_marginVertical="16dp"
+    tools:context=".ui.fragments.MovieDetailsFragment">
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp">
 
         <View
             android:id="@+id/linea_horizontal_details"
-            android:layout_width="4dp"
-            android:layout_height="25dp"
-            android:layout_marginStart="8dp"
+            android:layout_width="8dp"
+            android:layout_height="30dp"
             android:background="@color/yellow_background"/>
 
         <TextView
             android:id="@+id/title_movie_details"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Gambito de dama"
-            android:textSize="@dimen/title_text"
-            android:layout_marginStart="8dp"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="10dp"
             android:layout_toRightOf="@+id/linea_horizontal_details"
             android:textStyle="bold"/>
+
+        <TextView
+            android:id="@+id/title_details_movie_txt"
+            android:layout_width="match_parent"
+            android:layout_marginStart="18dp"
+            android:layout_marginVertical="4dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/title_movie_details"
+            android:text="The queens Gambit (titulo original)"
+            android:textSize="12sp"/>
+
+        <TextView
+            android:id="@+id/subtitle_details_movie_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="16dp"
+            android:text="Mini serie de TV 2020 - 2020 16"
+            android:layout_below="@+id/title_details_movie_txt"
+            android:textSize="@dimen/content_text"/>
 
     </RelativeLayout>
 
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_marginStart="18dp"
-        android:layout_height="wrap_content"
-        android:text="The queens Gambit (titulo original)"
-        android:textSize="14sp"/>
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:text="Mini serie de TV 2020 - 2020 16"
-        android:layout_marginBottom="8dp"
-        android:textSize="@dimen/content_text"/>
+
 
     <VideoView
         android:id="@+id/videoView"
@@ -59,10 +70,10 @@
             android:layout_width="79dp"
             android:layout_height="97dp"
             android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginBottom="8dp"
+            android:layout_marginEnd="8dp"
+            android:layout_marginVertical="16dp"
             android:adjustViewBounds="true"
-            tools:srcCompat="@drawable/img_queen_gambit" />
+            app:srcCompat="@drawable/img_queen_gambit" />
 
         <TextView
             android:id="@+id/category"
@@ -87,6 +98,7 @@
             android:layout_height="wrap_content"
             android:layout_row="1"
             android:layout_below="@+id/stars"
+            android:textSize="@dimen/content_text"
             android:layout_marginHorizontal="8dp"
             android:layout_toRightOf="@+id/movie_image"
             android:text="Ambientada en la Guerra Fría; una huérfana llamada Beth Harmon con un don para el ajedrez lucha contra las adicciones mientras intenta ser la mejor jugadora del mundo."

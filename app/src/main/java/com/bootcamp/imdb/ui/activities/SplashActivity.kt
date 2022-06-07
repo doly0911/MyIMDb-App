@@ -1,9 +1,8 @@
-package com.bootcamp.imdb.activities
+package com.bootcamp.imdb.ui.activities
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.bootcamp.imdb.MainActivity
 
 class SplashActivity : AppCompatActivity() {
 
