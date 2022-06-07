@@ -6,9 +6,11 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bootcamp.imdb.R
+import com.bootcamp.imdb.data.models.Movie
 
 
 class ProfileAdapter: RecyclerView.Adapter<ProfileAdapter.ViewHolder>() {
+
     private var description = arrayOf("Calificar y obtener recomendaciones", "Agregar a lista", "Aun sin iniciar", "Otraaa")
     private var titles = arrayOf("Calificaciones", "Listas", "Comenzar", "Finalizaar")
     private var num = arrayOf("0", "4", "0", "2")
