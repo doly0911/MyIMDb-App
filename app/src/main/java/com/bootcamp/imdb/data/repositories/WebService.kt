@@ -14,8 +14,9 @@ interface WebService {
     @GET("movie/popular")
     suspend fun findPopularMovies(@Query ("api_key") api_key: String): MovieList
 
-    @GET("movie/now_playing")
-    suspend fun findAllMovies(@Query ("api_key") api_key: String): MovieList
+    @GET("search/movie")
+    suspend fun findMovie(
+        @Query ("api_key") api_key: String, @Query("query") query: String): MovieList
 
 }
 

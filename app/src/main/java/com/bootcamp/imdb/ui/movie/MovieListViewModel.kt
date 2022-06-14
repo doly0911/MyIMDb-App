@@ -30,13 +30,12 @@ class MovieViewModel (private val repo: MovieRepository): ViewModel() {
 //        }
 //    }
 
-    //@TODO Implementar mensaje de error
-    fun getPopularMovies(){
+    fun searchMovie(query: String){
         coroutineScope.launch {
             try{
-                _moviesList.value = repo.findPopularMovies()
+                _moviesList.value = repo.findMovie(query)
             }catch (e : Exception) {
-                Log.d("MovieListViewModel", "Error en getPopularMovies()", e)
+                Log.d("MovieListViewModel", "Error: ", e)
             }
         }
     }

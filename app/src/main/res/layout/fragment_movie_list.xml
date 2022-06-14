@@ -7,12 +7,24 @@
     tools:context=".ui.movie.MovieListFragment"
     android:orientation="vertical">
 
-    <androidx.appcompat.widget.SearchView
+    <Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginVertical="20dp"
-        android:layout_marginHorizontal="16dp"
-        android:background="@drawable/background_search_view"/>
+        android:background="@color/white"
+        >
+
+        <androidx.appcompat.widget.SearchView
+            android:id="@+id/searchViewMovie"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:layout_marginVertical="20dp"
+            android:layout_marginHorizontal="16dp"
+            app:queryHint="Search here"
+            android:background="@drawable/background_search_view"/>
+
+    </Toolbar>
+
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView_movie_list"

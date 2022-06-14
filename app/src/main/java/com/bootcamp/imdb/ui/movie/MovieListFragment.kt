@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.widget.SearchView
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -48,12 +49,23 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieAdapterOnClickListener {
         )))
         viewModel = ViewModelProvider(this, viewModelFactory).get(MovieViewModel::class.java)
 
-        viewModel.getPopularMovies()
+
 
         viewModel.moviesList.observe(viewLifecycleOwner,{
             viewAdapter.submitList(it?.results)
         })
 
+        binding.searchViewMovie.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                viewModel.searchMovie(query!!)
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                viewModel.searchMovie(newText!!)
+                return false
+            }
+        })
 
     }
 
