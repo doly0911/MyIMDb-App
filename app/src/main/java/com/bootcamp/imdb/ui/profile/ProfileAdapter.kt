@@ -1,4 +1,4 @@
-package com.bootcamp.imdb.ui.adapters
+package com.bootcamp.imdb.ui.profile
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bootcamp.imdb.R
-import com.bootcamp.imdb.data.models.Movie
 
 
 class ProfileAdapter: RecyclerView.Adapter<ProfileAdapter.ViewHolder>() {

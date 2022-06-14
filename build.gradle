@@ -5,6 +5,8 @@ buildscript {
     ext.recyclerview_version = "1.2.1"
     ext {
         version_navigation = '2.4.2'
+        version_retrofit = '2.9.0'
+        lifecycle_version = '2.2.0'
     }
     repositories {
         google()

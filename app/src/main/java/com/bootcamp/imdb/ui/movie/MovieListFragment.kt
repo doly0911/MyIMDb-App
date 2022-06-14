@@ -1,19 +1,24 @@
-package com.bootcamp.imdb.ui.fragments
+package com.bootcamp.imdb.ui.movie
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bootcamp.imdb.R
-import com.bootcamp.imdb.ui.adapters.MovieAdapter
+import com.bootcamp.imdb.data.remote.dataSources.MovieRemoteDataSource
+import com.bootcamp.imdb.data.repositories.MovieRepositoryImpl
+import com.bootcamp.imdb.data.repositories.RetrofitClient
 import com.bootcamp.imdb.databinding.FragmentMovieListBinding
 
 class MovieListFragment : Fragment(), MovieAdapter.MovieAdapterOnClickListener {
 
     private lateinit var binding: FragmentMovieListBinding
+    private lateinit var viewModelFactory : MovieViewModelFactory
+    private lateinit var viewModel : MovieViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -38,6 +43,16 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieAdapterOnClickListener {
             layoutManager = LinearLayoutManager(context)
             adapter =viewAdapter
         }
+        viewModelFactory = MovieViewModelFactory(MovieRepositoryImpl(MovieRemoteDataSource(
+            RetrofitClient.webService
+        )))
+        viewModel = ViewModelProvider(this, viewModelFactory).get(MovieViewModel::class.java)
+
+        viewModel.getPopularMovies()
+
+        viewModel.moviesList.observe(viewLifecycleOwner,{
+            viewAdapter.submitList(it)
+        })
 
 
     }

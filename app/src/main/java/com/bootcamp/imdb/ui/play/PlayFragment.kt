@@ -1,23 +1,20 @@
-package com.bootcamp.imdb.ui.fragments
+package com.bootcamp.imdb.ui.play
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.bootcamp.imdb.R
-import com.bootcamp.imdb.ui.adapters.ProfileAdapter
-import com.bootcamp.imdb.databinding.FragmentProfileBinding
+import com.bootcamp.imdb.databinding.FragmentPlayBinding
 
-class ProfileFragment : Fragment() {
+class PlayFragment : Fragment() {
 
-    private lateinit var binding: FragmentProfileBinding
+    private lateinit var binding: FragmentPlayBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
-
         }
     }
 
@@ -26,17 +23,11 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
+        return inflater.inflate(R.layout.fragment_play, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        binding = FragmentProfileBinding.bind(view)
-
-        //RecyclerView Horizontal
-        binding.recyclerViewProfile.apply {
-            layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-            adapter = ProfileAdapter()
-        }
+        binding = FragmentPlayBinding.bind(view)
     }
 }

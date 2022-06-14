@@ -1,4 +1,4 @@
-package com.bootcamp.imdb.ui.activities
+package com.bootcamp.imdb.ui.register
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
