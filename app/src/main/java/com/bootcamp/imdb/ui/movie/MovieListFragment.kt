@@ -51,7 +51,7 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieAdapterOnClickListener {
         viewModel.getPopularMovies()
 
         viewModel.moviesList.observe(viewLifecycleOwner,{
-            viewAdapter.submitList(it)
+            viewAdapter.submitList(it?.results)
         })
 
 

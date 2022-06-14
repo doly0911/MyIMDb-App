@@ -6,6 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.bootcamp.imdb.data.remote.models.Movie
+import com.bootcamp.imdb.data.remote.models.MovieList
 import com.bootcamp.imdb.data.repositories.MovieRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -16,8 +17,8 @@ class HomeViewModel (private val repo: MovieRepository): ViewModel()  {
     private val viewModelJob = Job()
     private val coroutineScope  = CoroutineScope(viewModelJob + Dispatchers.Main)
 
-    private val _moviesList = MutableLiveData<List<Movie>?>()
-    val moviesList: LiveData<List<Movie>?>
+    private val _moviesList = MutableLiveData<MovieList?>()
+    val moviesList: LiveData<MovieList?>
         get() = _moviesList
 
 

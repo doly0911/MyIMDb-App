@@ -25,7 +25,6 @@ class HomeAdapter (private val listener: HomeAdapterOnClickListener):
        // holder.itemImageMovie.setImageResource(bestMovies[position].image)
         holder.itemRating.text = getItem(position).vote_average.toString()
         holder.itemTitleMovie.text = getItem(position).title
-        holder.onBindMovieCard()
     }
 
     interface HomeAdapterOnClickListener {
@@ -37,15 +36,6 @@ class HomeAdapter (private val listener: HomeAdapterOnClickListener):
         var itemImageMovie: ImageView = itemView.findViewById(R.id.img_movie_card_home)
         var itemRating: TextView = itemView.findViewById(R.id.rating_movie_card_home)
         var itemTitleMovie: TextView = itemView.findViewById(R.id.title_movie_card_home)
-        var movieCard: CardView = itemView.findViewById(R.id.cardView_movie_list)
-
-
-        fun onBindMovieCard() {
-            movieCard.setOnClickListener {
-                listener.movieCardOnclick(it)
-            }
-        }
-
     }
 }
 
