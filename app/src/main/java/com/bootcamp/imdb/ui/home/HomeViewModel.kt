@@ -5,7 +5,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.bootcamp.imdb.data.remote.models.Movie
 import com.bootcamp.imdb.data.remote.models.MovieList
 import com.bootcamp.imdb.data.repositories.MovieRepository
 import kotlinx.coroutines.CoroutineScope
@@ -25,9 +24,9 @@ class HomeViewModel (private val repo: MovieRepository): ViewModel()  {
     fun getPopularMovies() {
         coroutineScope.launch {
             try{
-                _moviesList.value = repo.findPopularMovies()
+                _moviesList.value = repo.findTopRatedMovies()
             }catch (e : Exception) {
-                Log.d("HomeViewModel", "No puedo traer datos o que", e)
+                Log.d("HomeViewModel", "error: ", e)
             }
         }
     }

@@ -10,8 +10,8 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface WebService {
-    @GET("movie/popular")
-    suspend fun findPopularMovies(@Query ("api_key") api_key: String): MovieList
+    @GET("movie/top_rated")
+    suspend fun findTopRatedMovies(@Query ("api_key") api_key: String): MovieList
 
     @GET("search/movie")
     suspend fun findMovie(
