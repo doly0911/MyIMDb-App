@@ -5,12 +5,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bootcamp.imdb.R
 import com.bootcamp.imdb.data.remote.models.Movie
+import com.bumptech.glide.Glide
 
 class HomeAdapter (private val listener: HomeAdapterOnClickListener):
     ListAdapter<Movie, HomeAdapter.ViewHolder>(HomeAdapterDiffCallback()) {
@@ -22,9 +22,12 @@ class HomeAdapter (private val listener: HomeAdapterOnClickListener):
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-       // holder.itemImageMovie.setImageResource(bestMovies[position].image)
         holder.itemRating.text = getItem(position).vote_average.toString()
         holder.itemTitleMovie.text = getItem(position).title
+        Glide.with(holder.itemView.context)
+            .load("https://image.tmdb.org/t/p/original${getItem(position).poster_path}")
+            .centerCrop()
+            .into(holder.itemImageMovie)
     }
 
     interface HomeAdapterOnClickListener {

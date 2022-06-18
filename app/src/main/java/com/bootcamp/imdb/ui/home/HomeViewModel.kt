@@ -22,8 +22,7 @@ class HomeViewModel (private val repo: MovieRepository): ViewModel()  {
         get() = _moviesList
 
 
-    //@TODO Implementar mensaje de error
-    fun getPopularMovies(){
+    fun getPopularMovies() {
         coroutineScope.launch {
             try{
                 _moviesList.value = repo.findPopularMovies()

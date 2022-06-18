@@ -1,4 +1,4 @@
-package com.bootcamp.imdb.ui.movie
+package com.bootcamp.imdb.ui.movie.movieList
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

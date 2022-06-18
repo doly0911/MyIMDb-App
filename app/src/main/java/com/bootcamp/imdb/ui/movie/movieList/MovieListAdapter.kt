@@ -1,4 +1,4 @@
-package com.bootcamp.imdb.ui.movie
+package com.bootcamp.imdb.ui.movie.movieList
 
 import android.view.LayoutInflater
 import android.view.View
@@ -11,6 +11,8 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.bootcamp.imdb.R
 import com.bootcamp.imdb.data.remote.models.Movie
+import com.bumptech.glide.Glide
+
 
 class MovieAdapter(private val listener: MovieAdapterOnClickListener) :
     ListAdapter<Movie, MovieAdapter.ViewHolder>(MovieAdapterDiffCallback()) {
@@ -26,7 +28,10 @@ class MovieAdapter(private val listener: MovieAdapterOnClickListener) :
         holder.itemName.text = getItem(position).title
         holder.itemYear.text = getItem(position).release_date
         holder.itemPeople.text = getItem(position).original_title
-        //holder.itemImage.setImageResource(getItem(position).image)
+        Glide.with(holder.itemView.context)
+            .load("https://image.tmdb.org/t/p/original${getItem(position).poster_path}")
+            .centerCrop()
+            .into(holder.itemImage)
         holder.onBindMovieCard()
     }
 

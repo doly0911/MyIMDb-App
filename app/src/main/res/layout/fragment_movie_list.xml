@@ -4,7 +4,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    tools:context=".ui.movie.MovieListFragment"
+    tools:context=".ui.movie.movieList.MovieListFragment"
     android:orientation="vertical">
 
     <Toolbar

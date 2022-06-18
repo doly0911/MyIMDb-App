@@ -1,8 +1,7 @@
-package com.bootcamp.imdb.ui.movie
+package com.bootcamp.imdb.ui.movie.movieList
 
 import android.util.Log
 import androidx.lifecycle.*
-import com.bootcamp.imdb.data.remote.models.Movie
 import com.bootcamp.imdb.data.remote.models.MovieList
 import com.bootcamp.imdb.data.repositories.MovieRepository
 import kotlinx.coroutines.CoroutineScope
