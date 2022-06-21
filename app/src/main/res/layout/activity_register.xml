@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:paddingVertical="20dp"
     android:paddingHorizontal="50dp"
-    tools:context=".ui.activities.RegisterActivity">
+    tools:context=".ui.register.RegisterActivity">
 
 
     <ImageView
