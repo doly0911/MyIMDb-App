@@ -1,6 +1,7 @@
 package com.bootcamp.imdb.data.repositories
 
 
+import com.bootcamp.imdb.data.remote.models.Movie
 import com.bootcamp.imdb.data.remote.models.MovieList
 import com.bootcamp.imdb.utils.AppConstants
 import com.google.gson.GsonBuilder
@@ -16,6 +17,11 @@ interface WebService {
     @GET("search/movie")
     suspend fun findMovie(
         @Query ("api_key") api_key: String, @Query("query") query: String): MovieList
+
+    @GET("movie/{movie_id}")
+    suspend fun getDetailsMovie(
+        @Query ("movie_id") movie_id: Int,
+        @Query("api_key") api_key:String): Movie
 
 }
 
