@@ -3,7 +3,7 @@ package com.bootcamp.imdb.ui.movie.movieDetails
 import android.util.Log
 import androidx.lifecycle.*
 import com.bootcamp.imdb.data.remote.models.Movie
-import com.bootcamp.imdb.data.repositories.MovieRepository
+import com.bootcamp.imdb.domain.movie.MovieRepository
 import kotlinx.coroutines.launch
 
 class MovieDetailsViewModel(private val repo: MovieRepository): ViewModel() {
@@ -22,7 +22,7 @@ class MovieDetailsViewModel(private val repo: MovieRepository): ViewModel() {
         }
     }
 
-    class MovieDetailsViewModelFactory(private val repo:MovieRepository): ViewModelProvider.Factory {
+    class MovieDetailsViewModelFactory(private val repo: MovieRepository): ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             return  modelClass.getConstructor(MovieRepository::class.java).newInstance(repo)
         }

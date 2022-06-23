@@ -9,8 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bootcamp.imdb.R
 import com.bootcamp.imdb.data.remote.dataSources.MovieRemoteDataSource
-import com.bootcamp.imdb.data.remote.models.MovieList
-import com.bootcamp.imdb.data.repositories.MovieRepositoryImpl
+import com.bootcamp.imdb.domain.movie.MovieRepositoryImpl
 import com.bootcamp.imdb.data.repositories.RetrofitClient
 import com.bootcamp.imdb.databinding.FragmentHomeBinding
 
