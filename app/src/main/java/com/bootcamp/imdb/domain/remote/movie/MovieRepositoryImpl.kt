@@ -1,9 +1,8 @@
-package com.bootcamp.imdb.domain.movie
+package com.bootcamp.imdb.domain.remote.movie
 
-import com.bootcamp.imdb.data.remote.dataSources.MovieRemoteDataSource
+import com.bootcamp.imdb.data.remote.dataSources.movie.MovieRemoteDataSource
 import com.bootcamp.imdb.data.remote.models.Movie
 import com.bootcamp.imdb.data.remote.models.MovieList
-import com.bootcamp.imdb.domain.movie.MovieRepository
 
 class MovieRepositoryImpl(private val dataSource: MovieRemoteDataSource) : MovieRepository {
 

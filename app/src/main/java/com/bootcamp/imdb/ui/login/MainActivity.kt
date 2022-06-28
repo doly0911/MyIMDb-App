@@ -6,9 +6,9 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import com.bootcamp.imdb.data.remote.dataSources.auth.LoginDataSource
+import com.bootcamp.imdb.data.remote.dataSources.auth.LoginRemoteDataSource
 import com.bootcamp.imdb.databinding.ActivityMainBinding
-import com.bootcamp.imdb.domain.auth.LoginRepositoryImpl
+import com.bootcamp.imdb.domain.remote.auth.LoginRepositoryImpl
 import com.bootcamp.imdb.ui.HomeActivity
 import com.bootcamp.imdb.ui.register.RegisterActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val firebaseAuth by lazy { FirebaseAuth.getInstance() }
     private val viewModel by viewModels<LoginViewModel> {
-        LoginViewModel.LoginViewModelFactory(LoginRepositoryImpl(LoginDataSource()))
+        LoginViewModel.LoginViewModelFactory(LoginRepositoryImpl(LoginRemoteDataSource()))
     }
     
 

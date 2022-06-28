@@ -2,8 +2,7 @@ package com.bootcamp.imdb.ui.login
 
 import android.util.Log
 import androidx.lifecycle.*
-import com.bootcamp.imdb.data.remote.models.Auth
-import com.bootcamp.imdb.domain.auth.LoginRepository
+import com.bootcamp.imdb.domain.remote.auth.LoginRepository
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.launch
