@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.bootcamp.imdb.data.remote.models.MovieList
-import com.bootcamp.imdb.data.repositories.MovieRepository
+import com.bootcamp.imdb.domain.movie.MovieRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.Job
@@ -31,7 +31,7 @@ class HomeViewModel (private val repo: MovieRepository): ViewModel()  {
         }
     }
 
-    class HomeViewModelFactory(private val repo:MovieRepository): ViewModelProvider.Factory {
+    class HomeViewModelFactory(private val repo: MovieRepository): ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
             return  modelClass.getConstructor(MovieRepository::class.java).newInstance(repo)
         }

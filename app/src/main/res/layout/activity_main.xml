@@ -29,11 +29,11 @@
         style="@style/login_txt"/>
 
     <EditText
-        android:id="@+id/edit_txt_user"
+        android:id="@+id/edit_txt_email"
         android:layout_width="match_parent"
         android:layout_height="60dp"
         android:ems="10"
-        android:inputType="text"
+        android:inputType="textEmailAddress"
         android:paddingLeft="15dp"
         android:background="@drawable/custom_input"/>
 
