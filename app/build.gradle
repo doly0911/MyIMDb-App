@@ -78,4 +78,8 @@ dependencies {
 
     //Firebase
     implementation 'com.google.firebase:firebase-auth:21.0.5'
+
+    //Courotines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.4.1'
+
 }
