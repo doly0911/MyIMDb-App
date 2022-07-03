@@ -9,7 +9,7 @@ import com.bootcamp.imdb.data.local.models.MovieEntity
 @Dao
 interface MovieDAO {
 
-    @Query(value = "SELECT * FROM movie_table" )
+    @Query(value = "SELECT * FROM MovieEntity" )
     suspend fun getMovies() : List<MovieEntity>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)

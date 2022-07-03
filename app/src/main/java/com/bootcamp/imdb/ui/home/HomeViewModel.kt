@@ -21,7 +21,7 @@ class HomeViewModel (private val repo: MovieRepository): ViewModel()  {
         get() = _moviesList
 
 
-    fun getPopularMovies() {
+    fun getTopRatedMovies() {
         coroutineScope.launch {
             try{
                 _moviesList.value = repo.findTopRatedMovies()

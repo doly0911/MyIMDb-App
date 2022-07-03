@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey
 import com.bootcamp.imdb.data.remote.models.Movie
 import com.bootcamp.imdb.data.remote.models.MovieList
 
-@Entity (tableName = "movie_table")
+@Entity
 data class MovieEntity(
     @PrimaryKey
     val id: Int= -1,

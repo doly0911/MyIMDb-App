@@ -10,9 +10,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bootcamp.imdb.R
+import com.bootcamp.imdb.data.local.dataSource.AppDataBase
+import com.bootcamp.imdb.data.local.dataSource.MovieLocalDataSource
 import com.bootcamp.imdb.data.remote.dataSources.movie.MovieRemoteDataSource
 import com.bootcamp.imdb.domain.remote.movie.MovieRepositoryImpl
-import com.bootcamp.imdb.data.repositories.RetrofitClient
+import com.bootcamp.imdb.data.remote.RetrofitClient
 import com.bootcamp.imdb.databinding.FragmentMovieListBinding
 
 class MovieListFragment : Fragment(), MovieAdapter.MovieAdapterOnClickListener {
@@ -45,9 +47,10 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieAdapterOnClickListener {
             adapter =viewAdapter
         }
         viewModelFactory = MovieViewModelFactory(
-            MovieRepositoryImpl(MovieRemoteDataSource(
-            RetrofitClient.webService
-        ))
+            MovieRepositoryImpl(
+                MovieRemoteDataSource(RetrofitClient.webService),
+                MovieLocalDataSource(AppDataBase.getInstance(requireContext()).movieDao())
+            )
         )
         viewModel = ViewModelProvider(this, viewModelFactory).get(MovieViewModel::class.java)
 
