@@ -7,9 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.bootcamp.imdb.R
-import com.bootcamp.imdb.data.remote.dataSources.MovieRemoteDataSource
-import com.bootcamp.imdb.domain.movie.MovieRepositoryImpl
-import com.bootcamp.imdb.data.repositories.RetrofitClient
+import com.bootcamp.imdb.data.local.dataSource.AppDataBase
+import com.bootcamp.imdb.data.local.dataSource.MovieLocalDataSource
+import com.bootcamp.imdb.data.remote.dataSources.movie.MovieRemoteDataSource
+import com.bootcamp.imdb.domain.remote.movie.MovieRepositoryImpl
+import com.bootcamp.imdb.data.remote.RetrofitClient
 import com.bootcamp.imdb.databinding.FragmentMovieDetailsBinding
 
 class MovieDetailsFragment : Fragment() {
@@ -17,7 +19,10 @@ class MovieDetailsFragment : Fragment() {
 
     //Inyeccion de dependencias manual
     private val viewModel by viewModels<MovieDetailsViewModel> {
-        MovieDetailsViewModel.MovieDetailsViewModelFactory(MovieRepositoryImpl(MovieRemoteDataSource((RetrofitClient.webService))))
+        MovieDetailsViewModel.MovieDetailsViewModelFactory(MovieRepositoryImpl(
+            MovieRemoteDataSource((RetrofitClient.webService)),
+            MovieLocalDataSource(AppDataBase.getInstance(requireContext()).movieDao())
+        ))
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,

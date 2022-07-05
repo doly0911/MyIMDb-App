@@ -1,4 +1,4 @@
-package com.bootcamp.imdb.domain.movie
+package com.bootcamp.imdb.domain.remote.movie
 
 
 import com.bootcamp.imdb.data.remote.models.Movie

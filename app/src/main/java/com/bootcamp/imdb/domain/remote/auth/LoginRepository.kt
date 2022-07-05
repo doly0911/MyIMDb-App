@@ -1,4 +1,4 @@
-package com.bootcamp.imdb.domain.auth
+package com.bootcamp.imdb.domain.remote.auth
 
 import com.google.firebase.auth.FirebaseUser
 

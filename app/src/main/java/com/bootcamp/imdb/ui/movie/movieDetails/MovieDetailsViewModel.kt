@@ -3,7 +3,7 @@ package com.bootcamp.imdb.ui.movie.movieDetails
 import android.util.Log
 import androidx.lifecycle.*
 import com.bootcamp.imdb.data.remote.models.Movie
-import com.bootcamp.imdb.domain.movie.MovieRepository
+import com.bootcamp.imdb.domain.remote.movie.MovieRepository
 import kotlinx.coroutines.launch
 
 class MovieDetailsViewModel(private val repo: MovieRepository): ViewModel() {

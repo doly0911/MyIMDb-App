@@ -1,4 +1,4 @@
-package com.bootcamp.imdb.data.repositories
+package com.bootcamp.imdb.data.remote
 
 
 import com.bootcamp.imdb.data.remote.models.Movie

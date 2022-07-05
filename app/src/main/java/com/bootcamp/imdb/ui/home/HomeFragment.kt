@@ -8,9 +8,11 @@ import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bootcamp.imdb.R
-import com.bootcamp.imdb.data.remote.dataSources.MovieRemoteDataSource
-import com.bootcamp.imdb.domain.movie.MovieRepositoryImpl
-import com.bootcamp.imdb.data.repositories.RetrofitClient
+import com.bootcamp.imdb.data.local.dataSource.AppDataBase
+import com.bootcamp.imdb.data.local.dataSource.MovieLocalDataSource
+import com.bootcamp.imdb.data.remote.dataSources.movie.MovieRemoteDataSource
+import com.bootcamp.imdb.domain.remote.movie.MovieRepositoryImpl
+import com.bootcamp.imdb.data.remote.RetrofitClient
 import com.bootcamp.imdb.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment(), HomeAdapter.HomeAdapterOnClickListener {
@@ -47,14 +49,13 @@ class HomeFragment : Fragment(), HomeAdapter.HomeAdapterOnClickListener {
 
         viewModelFactory = HomeViewModel.HomeViewModelFactory(
             MovieRepositoryImpl(
-                MovieRemoteDataSource(
-                    RetrofitClient.webService
-                )
+                MovieRemoteDataSource(RetrofitClient.webService),
+                MovieLocalDataSource(AppDataBase.getInstance(requireContext()).movieDao())
             )
         )
         viewModel = ViewModelProvider(this, viewModelFactory).get(HomeViewModel::class.java)
 
-        viewModel.getPopularMovies()
+        viewModel.getTopRatedMovies()
 
         viewModel.moviesList.observe(viewLifecycleOwner,{
             viewAdapter.submitList(it?.results)
