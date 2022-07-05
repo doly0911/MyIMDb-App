@@ -39,6 +39,7 @@ class RegisterActivity : AppCompatActivity() {
     private fun createUser(username: String, email: String, password: String) {
         viewModel.createUser(username, email, password)
         viewModel.registerResponse.observe(this, Observer {
+            Log.d("Register response", it.toString())
             startActivity(Intent(this, HomeActivity::class.java))
         })
     }
