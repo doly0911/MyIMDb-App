@@ -6,9 +6,9 @@ import android.os.Bundle
 import android.util.Log
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
-import com.bootcamp.imdb.data.remote.dataSources.auth.LoginRemoteDataSource
+import com.bootcamp.imdb.data.remote.dataSources.auth.AuthRemoteDataSource
 import com.bootcamp.imdb.databinding.ActivityMainBinding
-import com.bootcamp.imdb.domain.remote.auth.LoginRepositoryImpl
+import com.bootcamp.imdb.domain.remote.auth.AuthRepositoryImpl
 import com.bootcamp.imdb.ui.HomeActivity
 import com.bootcamp.imdb.ui.register.RegisterActivity
 import com.google.firebase.auth.FirebaseAuth
@@ -17,7 +17,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val firebaseAuth by lazy { FirebaseAuth.getInstance() }
     private val viewModel by viewModels<LoginViewModel> {
-        LoginViewModel.LoginViewModelFactory(LoginRepositoryImpl(LoginRemoteDataSource()))
+        LoginViewModel.LoginViewModelFactory(AuthRepositoryImpl(AuthRemoteDataSource()))
     }
     
 
@@ -27,11 +27,7 @@ class MainActivity : AppCompatActivity() {
         val view = binding.root
         setContentView(view)
 
-
-        binding.btnRegister.setOnClickListener {
-            startActivity(Intent(this, RegisterActivity::class.java))
-        }
-
+        goToSignUpPage()
         isUserLoggedIn()
         doLogin()
 
@@ -72,5 +68,11 @@ class MainActivity : AppCompatActivity() {
             Log.d("Service response", it.toString())
             startActivity(Intent(this, HomeActivity::class.java))
         })
+    }
+
+    private fun goToSignUpPage(){
+        binding.btnRegister.setOnClickListener {
+            startActivity(Intent(this, RegisterActivity::class.java))
+        }
     }
 }
