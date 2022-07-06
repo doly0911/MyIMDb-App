@@ -8,16 +8,16 @@ import kotlinx.coroutines.launch
 
 class MovieDetailsViewModel(private val repo: MovieRepository): ViewModel() {
 
-    private val _movieDetails = MutableLiveData<Movie?>()
-    val movieDetails: LiveData<Movie?>
-        get() = _movieDetails
+    private val _movieDetailsResponse = MutableLiveData<Movie?>()
+    val movieDetailsResponse: LiveData<Movie?>
+        get() = _movieDetailsResponse
 
     fun getDetails(idMovie: Int){
         viewModelScope.launch {
             try {
-                _movieDetails.value = repo.getDetailsMovie(idMovie)
+                _movieDetailsResponse.value = repo.getDetailsMovie(idMovie)
             } catch (e: Exception) {
-                Log.d("MovieDetailsModel", "error: ", e)
+                Log.d("MovieDetailsViewModel", "error: ", e)
             }
         }
     }

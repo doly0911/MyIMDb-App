@@ -19,16 +19,6 @@ class MovieViewModel (private val repo: MovieRepository): ViewModel() {
     val moviesList: LiveData<MovieList?>
         get() = _moviesList
 
-
-//    fun fetchPopularMovie() = liveData(Dispatchers.IO) {
-//        emit(Result.loading())
-//        try {
-//            emit(repo.findPopularMovies())
-//        } catch (e:Exception){
-//            emit(Result.Failure(e))
-//        }
-//    }
-
     fun searchMovie(query: String){
         coroutineScope.launch {
             try{
@@ -38,7 +28,6 @@ class MovieViewModel (private val repo: MovieRepository): ViewModel() {
             }
         }
     }
-
 }
 
 class MovieViewModelFactory(private val repo: MovieRepository): ViewModelProvider.Factory {

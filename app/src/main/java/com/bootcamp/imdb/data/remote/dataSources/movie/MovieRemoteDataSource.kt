@@ -16,6 +16,6 @@ class MovieRemoteDataSource (private val webService: WebService) {
 
     suspend fun findMovie(query: String): MovieList = webService.findMovie(AppConstants.API_KEY, query)
 
-    suspend fun getDetailsMovie(idMovie:Int): Movie = webService.getDetailsMovie(idMovie, AppConstants.API_KEY)
+    suspend fun getDetailsMovie(idMovie:Int): Movie = webService.getDetailsMovie(idMovie, AppConstants.API_KEY, AppConstants.LANGUAGE)
 
 }

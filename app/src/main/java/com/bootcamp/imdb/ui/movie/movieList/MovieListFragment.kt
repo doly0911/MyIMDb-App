@@ -1,6 +1,7 @@
 package com.bootcamp.imdb.ui.movie.movieList
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -15,6 +16,7 @@ import com.bootcamp.imdb.data.local.dataSource.MovieLocalDataSource
 import com.bootcamp.imdb.data.remote.dataSources.movie.MovieRemoteDataSource
 import com.bootcamp.imdb.domain.remote.movie.MovieRepositoryImpl
 import com.bootcamp.imdb.data.remote.RetrofitClient
+import com.bootcamp.imdb.data.remote.models.Movie
 import com.bootcamp.imdb.databinding.FragmentMovieListBinding
 
 class MovieListFragment : Fragment(), MovieAdapter.MovieAdapterOnClickListener {
@@ -32,6 +34,7 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieAdapterOnClickListener {
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
+
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_movie_list, container, false)
     }
@@ -54,8 +57,6 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieAdapterOnClickListener {
         )
         viewModel = ViewModelProvider(this, viewModelFactory).get(MovieViewModel::class.java)
 
-
-
         viewModel.moviesList.observe(viewLifecycleOwner,{
             viewAdapter.submitList(it?.results)
         })
@@ -74,7 +75,10 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieAdapterOnClickListener {
 
     }
 
-    override fun movieCardOnclick(view: View) {
-        view.findNavController().navigate(R.id.action_movieListFragment_to_movieDetailsFragment)
+    override fun movieCardOnclick(movie: Movie, view: View) {
+        movie.id.let {
+            view.findNavController().navigate(MovieListFragmentDirections.actionMovieListFragmentToMovieDetailsFragment(it))
+        }
+
     }
 }

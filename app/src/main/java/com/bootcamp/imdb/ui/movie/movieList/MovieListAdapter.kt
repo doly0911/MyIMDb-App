@@ -1,5 +1,6 @@
 package com.bootcamp.imdb.ui.movie.movieList
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -32,7 +33,7 @@ class MovieAdapter(private val listener: MovieAdapterOnClickListener) :
             .load("https://image.tmdb.org/t/p/original${getItem(position).poster_path}")
             .centerCrop()
             .into(holder.itemImage)
-        holder.onBindMovieCard()
+        holder.onBindMovieCard(getItem(position))
     }
 
     inner class ViewHolder(itemView: View, private val listener: MovieAdapterOnClickListener) :
@@ -43,16 +44,16 @@ class MovieAdapter(private val listener: MovieAdapterOnClickListener) :
         var itemImage: ImageView = itemView.findViewById(R.id.movie_image)
         var movieCard: CardView = itemView.findViewById(R.id.cardView_movie_list)
 
-        fun onBindMovieCard() {
+        fun onBindMovieCard(movie: Movie) {
             movieCard.setOnClickListener {
-                listener.movieCardOnclick(it)
+                listener.movieCardOnclick(movie, it)
             }
         }
 
     }
 
     interface MovieAdapterOnClickListener {
-        fun movieCardOnclick(view: View)
+        fun movieCardOnclick(movie: Movie, view: View)
     }
 }
 

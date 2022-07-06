@@ -8,6 +8,7 @@ import com.google.gson.GsonBuilder
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Path
 import retrofit2.http.Query
 
 interface WebService {
@@ -20,8 +21,9 @@ interface WebService {
 
     @GET("movie/{movie_id}")
     suspend fun getDetailsMovie(
-        @Query ("movie_id") movie_id: Int,
-        @Query("api_key") api_key:String): Movie
+        @Path("movie_id") idMovie: Int,
+        @Query("api_key") api_key:String,
+        @Query("language") language:String): Movie
 
 }
 
