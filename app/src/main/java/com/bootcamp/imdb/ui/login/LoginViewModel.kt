@@ -2,12 +2,12 @@ package com.bootcamp.imdb.ui.login
 
 import android.util.Log
 import androidx.lifecycle.*
-import com.bootcamp.imdb.domain.remote.auth.LoginRepository
+import com.bootcamp.imdb.domain.remote.auth.AuthRepository
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseUser
 import kotlinx.coroutines.launch
 
-class LoginViewModel(private val repo: LoginRepository): ViewModel() {
+class LoginViewModel(private val repo: AuthRepository): ViewModel() {
 
     private val _authResponse = MutableLiveData<FirebaseUser?>()
     val authResponse: LiveData<FirebaseUser?>
@@ -25,9 +25,9 @@ class LoginViewModel(private val repo: LoginRepository): ViewModel() {
         }
     }
 
-    class LoginViewModelFactory(private val repo: LoginRepository): ViewModelProvider.Factory {
+    class LoginViewModelFactory(private val repo: AuthRepository): ViewModelProvider.Factory {
         override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-            return modelClass.getConstructor(LoginRepository::class.java).newInstance(repo)
+            return modelClass.getConstructor(AuthRepository::class.java).newInstance(repo)
         }
     }
 
