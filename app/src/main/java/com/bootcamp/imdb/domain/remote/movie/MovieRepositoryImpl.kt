@@ -1,15 +1,15 @@
 package com.bootcamp.imdb.domain.remote.movie
 
 import android.util.Log
-import com.bootcamp.imdb.data.local.dataSource.MovieLocalDataSource
-import com.bootcamp.imdb.data.remote.dataSources.movie.MovieRemoteDataSource
+import com.bootcamp.imdb.data.local.dataSource.IMovieLocalDataSource
+import com.bootcamp.imdb.data.remote.dataSources.movie.IMovieRemoteDataSource
 import com.bootcamp.imdb.data.remote.models.Movie
 import com.bootcamp.imdb.data.remote.models.MovieList
 import com.bootcamp.imdb.data.remote.models.toMovieEntity
 import java.net.UnknownHostException
 
-class MovieRepositoryImpl(private val RemoteDataSource: MovieRemoteDataSource,
-                          private val localDataSource: MovieLocalDataSource) : MovieRepository {
+class MovieRepositoryImpl(private val RemoteDataSource: IMovieRemoteDataSource,
+                          private val localDataSource: IMovieLocalDataSource) : MovieRepository {
 
     override suspend fun findTopRatedMovies(): MovieList {
         try{

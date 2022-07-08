@@ -10,8 +10,8 @@ import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import com.bootcamp.imdb.R
 import com.bootcamp.imdb.data.local.dataSource.AppDataBase
-import com.bootcamp.imdb.data.local.dataSource.MovieLocalDataSource
-import com.bootcamp.imdb.data.remote.dataSources.movie.MovieRemoteDataSource
+import com.bootcamp.imdb.data.local.dataSource.MovieLocalDataSourceImpl
+import com.bootcamp.imdb.data.remote.dataSources.movie.MovieRemoteDataSourceImpl
 import com.bootcamp.imdb.domain.remote.movie.MovieRepositoryImpl
 import com.bootcamp.imdb.data.remote.RetrofitClient
 import com.bootcamp.imdb.databinding.FragmentMovieDetailsBinding
@@ -25,8 +25,8 @@ class MovieDetailsFragment : Fragment() {
     //Inyeccion de dependencias manual
     private val viewModel by viewModels<MovieDetailsViewModel> {
         MovieDetailsViewModel.MovieDetailsViewModelFactory(MovieRepositoryImpl(
-            MovieRemoteDataSource((RetrofitClient.webService)),
-            MovieLocalDataSource(AppDataBase.getInstance(requireContext()).movieDao())
+            MovieRemoteDataSourceImpl((RetrofitClient.webService)),
+            MovieLocalDataSourceImpl(AppDataBase.getInstance(requireContext()).movieDao())
         ))
     }
 

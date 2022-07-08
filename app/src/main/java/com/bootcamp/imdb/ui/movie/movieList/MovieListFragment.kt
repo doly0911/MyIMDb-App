@@ -1,7 +1,6 @@
 package com.bootcamp.imdb.ui.movie.movieList
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -12,8 +11,8 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.bootcamp.imdb.R
 import com.bootcamp.imdb.data.local.dataSource.AppDataBase
-import com.bootcamp.imdb.data.local.dataSource.MovieLocalDataSource
-import com.bootcamp.imdb.data.remote.dataSources.movie.MovieRemoteDataSource
+import com.bootcamp.imdb.data.local.dataSource.MovieLocalDataSourceImpl
+import com.bootcamp.imdb.data.remote.dataSources.movie.MovieRemoteDataSourceImpl
 import com.bootcamp.imdb.domain.remote.movie.MovieRepositoryImpl
 import com.bootcamp.imdb.data.remote.RetrofitClient
 import com.bootcamp.imdb.data.remote.models.Movie
@@ -51,8 +50,8 @@ class MovieListFragment : Fragment(), MovieAdapter.MovieAdapterOnClickListener {
         }
         viewModelFactory = MovieViewModelFactory(
             MovieRepositoryImpl(
-                MovieRemoteDataSource(RetrofitClient.webService),
-                MovieLocalDataSource(AppDataBase.getInstance(requireContext()).movieDao())
+                MovieRemoteDataSourceImpl(RetrofitClient.webService),
+                MovieLocalDataSourceImpl(AppDataBase.getInstance(requireContext()).movieDao())
             )
         )
         viewModel = ViewModelProvider(this, viewModelFactory).get(MovieViewModel::class.java)
