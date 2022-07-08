@@ -1,7 +1,9 @@
 package com.bootcamp.imdb.domain.remote.movie
 
 import android.util.Log
+import com.bootcamp.imdb.data.local.dataSource.IMovieLocalDataSource
 import com.bootcamp.imdb.data.local.models.MovieEntity
+import com.bootcamp.imdb.data.remote.dataSources.movie.IMovieRemoteDataSource
 import com.bootcamp.imdb.data.remote.models.Movie
 import com.bootcamp.imdb.domain.FakeErrorMovieRemoteDataSource
 import com.bootcamp.imdb.domain.FakeMovieLocalDataSource
@@ -24,26 +26,17 @@ class MovieRepositoryTest {
     private val remoteMovies = listOf(movieRemote1, movieRemote2).sortedBy { it.id }
     private val localMovies = mutableListOf<Movie>()
 
-    private lateinit var movieRemoteDataSource: FakeMovieRemoteDataSource
-    private lateinit var movieLocalDataSource: FakeMovieLocalDataSource
-    private lateinit var movieRepository: MovieRepositoryImpl
-
+    private lateinit var movieRemoteDataSource: IMovieRemoteDataSource
+    private lateinit var movieLocalDataSource: IMovieLocalDataSource
+    private lateinit var movieRepository: MovieRepository
 
     private val initialLocalMovies = listOf(movieRemote1, movieRemote2).sortedBy { it.id }
-
-    private lateinit var errorMovieRemoteDataSource: FakeErrorMovieRemoteDataSource
-    private lateinit var movieLocalDataSourceWithInitData: FakeMovieLocalDataSource
-    private lateinit var errorMovieRepository: MovieRepositoryImpl
 
     @Before
     fun createRepository(){
         movieRemoteDataSource = FakeMovieRemoteDataSource(remoteMovies.toMutableList())
         movieLocalDataSource = FakeMovieLocalDataSource(localMovies)
         movieRepository = MovieRepositoryImpl(movieRemoteDataSource, movieLocalDataSource)
-
-        errorMovieRemoteDataSource = FakeErrorMovieRemoteDataSource()
-        movieLocalDataSourceWithInitData = FakeMovieLocalDataSource(initialLocalMovies.toMutableList())
-        errorMovieRepository = MovieRepositoryImpl(errorMovieRemoteDataSource, movieLocalDataSourceWithInitData)
 
         mockkStatic(Log::class)
         every { Log.v(any(), any()) } returns 0
@@ -65,9 +58,11 @@ class MovieRepositoryTest {
 
     @Test
     fun getMovies_requestTopMoviesFromLocalDataSource() = runBlockingTest {
-
+        movieRemoteDataSource = FakeErrorMovieRemoteDataSource()
+        movieLocalDataSource = FakeMovieLocalDataSource(initialLocalMovies.toMutableList())
+        movieRepository = MovieRepositoryImpl(movieRemoteDataSource, movieLocalDataSource)
         //When
-        val topMovies = errorMovieRepository.findTopRatedMovies()
+        val topMovies = movieRepository.findTopRatedMovies()
 
         //Then
         assertThat(topMovies.results, IsEqual(initialLocalMovies))
