@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "219583213436",
+    "project_id": "imdb-f95a8",
+    "storage_bucket": "imdb-f95a8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:219583213436:android:7778c9f8f02276b1457ef9",
+        "android_client_info": {
+          "package_name": "com.bootcamp.imdb"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "219583213436-79so1t3t4i2u7m1t8mo2r4knh6dsqra9.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6kVrPBT4NdpxDd1fHvh6x0-h4HAeaxvg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "219583213436-79so1t3t4i2u7m1t8mo2r4knh6dsqra9.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

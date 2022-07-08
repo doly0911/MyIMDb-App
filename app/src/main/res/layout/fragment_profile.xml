@@ -8,7 +8,7 @@
     android:layout_height="wrap_content"
     android:fillViewport="true"
     android:orientation="vertical"
-    tools:context=".ui.fragments.ProfileFragment">
+    tools:context=".ui.profile.ProfileFragment">
 
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
@@ -33,7 +33,7 @@
         android:layout_height="34dp"
         android:layout_marginStart="20dp"
         android:layout_toRightOf="@id/profile_image"
-        android:text="Juan Perez"
+        android:text=""
         android:textColor="@color/black"
         android:textSize="25sp"
         android:textStyle="bold"

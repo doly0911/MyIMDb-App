@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:paddingVertical="20dp"
     android:paddingHorizontal="50dp"
-    tools:context=".ui.activities.RegisterActivity">
+    tools:context=".ui.register.RegisterActivity">
 
 
     <ImageView
@@ -84,6 +84,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
+        android:id="@+id/btnSignUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="@string/aceptar_btn"
