@@ -5,13 +5,13 @@ import com.bootcamp.imdb.data.local.models.toMovieList
 import com.bootcamp.imdb.data.remote.models.MovieList
 import com.bootcamp.imdb.domain.local.MovieDAO
 
-class MovieLocalDataSource(private val movieDAO: MovieDAO) {
+class MovieLocalDataSourceImpl(private val movieDAO: MovieDAO) : IMovieLocalDataSource {
 
-    suspend fun getTopRatedMovies(): MovieList {
+    override suspend fun getTopRatedMovies(): MovieList {
         return movieDAO.getMovies().filter { it.movieType == "toprated" }.toMovieList()
     }
 
-    suspend fun saveMovie(movieEntity: MovieEntity){
+    override suspend fun saveMovie(movieEntity: MovieEntity){
         movieDAO.saveMovie(movieEntity)
     }
 }
